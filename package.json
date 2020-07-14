@@ -1,0 +1,33 @@
+{
+  "name": "dazn-qa-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:debug": "cd frontend-tests && cypress open",
+    "cy": "cd frontend-tests && cypress run",
+    "perf:mainpage": "cd performance && artillery run main.yaml",
+    "perf:api": "cd performance && artillery run api.yaml && echo \"\\x1b[30m\\x1b[103m Warning: Do not increase numbers as service breaks after 1000 calls/minute for valid post-code calls to weather-app-api  \n\\x1b[0m\"",
+    "jest": "jest --config ./backend-tests/jest.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavel-nicovala/dazn-qa-test.git"
+  },
+  "author": "Pavel-Aurelian Nicovala",
+  "license": "ISC",
+  "homepage": "https://github.com/pavel-nicovala/dazn-qa-test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "artillery": "^1.6.1",
+    "axios": "^0.19.2",
+    "babel-jest": "^26.1.0",
+    "cypress": "^4.10.0",
+    "jest": "^26.1.0",
+    "rest": "^2.0.0",
+    "supertest": "^4.0.2"
+  }
+}

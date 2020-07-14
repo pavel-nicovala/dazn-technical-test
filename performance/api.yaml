@@ -1,0 +1,17 @@
+config:
+  target: "https://fierce-gorge-81903.herokuapp.com"
+  phases:
+    - duration: 5
+      arrivalRate: 1
+    - duration: 10
+      arrivalRate: 2
+# Warning: Do not increase numbers as service breaks after 1000 calls/minute for valid post-code calls to weather-app-api 
+      
+scenarios:
+  - name: API valid post-code ramp-up
+    flow:
+    - post:
+        url: "/api"
+        json: 
+           address: "W6 0NW"
+        
