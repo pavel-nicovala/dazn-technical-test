@@ -33,7 +33,7 @@ npm run perf:api        # Run performance ramp-up on api
 
     _Chosen framework is [cypress.io](https://www.cypress.io/), run `npm run cy` or `npm run cy:debug` to open test runner (bear in mind it take a while for cypress to initialize for first time run)._ 
     
-    _Considering the task is limited to only 5 tests, I've selected what I considered to be high priority scenarios, 2 more e2e test cases need to be added in order to cover a full acceptance test harness: one for checking non mandatory fields are displayed and one for checking that interface updates data when a new post code is submited_
+    _Keeping in mind the task is limited to only 5 tests, I've selected what I considered to be high priority scenarios, 2 more e2e test cases need to be added in order to cover a full acceptance test harness: one for checking non mandatory fields are displayed and one for checking that interface updates data when a new post code is submited_
 
 1. Suppose you want to run some of these tests in a development pipeline that's independent from the backend development pipeline. Explain how you would approach this:
 
@@ -41,14 +41,14 @@ npm run perf:api        # Run performance ramp-up on api
 
     - How you would go about integrating this framework with a CI pipeline;
 
-    _Cypress is a framework for front-end and end to end tests, it supports asserions, mocks and stubs. Based on that I've divided the tests in 2 suites, front-end and e2e, in theory front-end suite (`data.js`) is not too heavy-weight and should be able to run independent from the backend if error handling is done on front-end level and for the case it needs a mock I've left a trace on where it needs to be declared (`example-mock.json` in fixtures floder and `cypress.env.json`) but without touching the actual codebase it would be hard to complete this task._
+    _Cypress is a framework for front-end and end to end tests, it supports asserions, mocks and stubs. Based on that I've divided the tests in 2 suites, front-end and e2e, in theory front-end suite (`data.js`) is not too heavy-weight and should be able to run independent from the back-end if error handling is done on front-end level and for the case it needs a mock I've left a trace on where it needs to be added (`example-mock.json` in fixtures floder and `cypress.env.json`) but without touching the actual codebase it would be hard to complete this task._
     
     _Cypress offers a rich support for running in Continous Integration (for more [details](https://docs.cypress.io/guides/guides/continuous-integration.html#Boot-your-server)) and on some CI tools (eg. Jenkins - Windows node) it can just run headlessly without additional configs and dependecies, on request I can provide a dockerized Jenkins with pipelines and dependencies pre-configured. The easy solution for integrating automated browser testing frameworks in CI is choosing the right framework, other candidates for this task would have been Gauge + Taiko or Puppeteer._
   
 
 1. Extras
 
-    _Observations: Specified error text from requirements document do not match actual error text from the app._
+    _Observations: Specified error text from requirements document does not match actual error text from the app._
 
     _Run `npm run perf:mainpage` for a ramp-up performance test on main paige._
 
@@ -58,7 +58,7 @@ npm run perf:api        # Run performance ramp-up on api
 
     _Chosen framework is [jest.io](https://jestjs.io/), run `npm run jest`._ 
 
-    _Considering the task is limited to only 4 tests, I selected what I considered to be an acceptance test harness that basically mirrors the front-end tests from an API perspetive, more tests could be added if a more detailed documentation is provided. Other candidate for this task would have been Mocha & Chai._
+    _Keeping in mind the task is limited to only 4 tests, I selected what I considered to be an acceptance test harness that basically mirrors the front-end tests from an API perspetive, more tests could be added if a more detailed documentation is provided. Other candidate for this task would have been Mocha & Chai._
 
 1. Looking at the architectural diagram, explain how you would approach testing this weather-app-api on an integration level.
 
@@ -70,7 +70,7 @@ npm run perf:api        # Run performance ramp-up on api
 
     - _Security - weather-app-api is public facing and it can be queried without any tokens or form of authentification._ 
 
-    - _Error handling - No matter what values are posted in the payload and including null, except valid post code or non-valid post-code, error will always be “Invalid Address“._
+    - _Error handling - No matter what values are posted in the payload and including null and excepting valid post code or non-valid post-code, error will always be “Invalid Address“._
 
     - _Performance - Weather-app-api breaks after a 1000 calls/minute performance test (good thing is that "Please try again later" error is displayed after it breaks)._
 
@@ -78,7 +78,7 @@ npm run perf:api        # Run performance ramp-up on api
 
     - _Error code is 434 If weather-app-api call fails and not 433 as specified in requirements document._
 
-    - _Back-end error text does not match front-error text._
+    - _Back-end error text does not match front-end error text._
 
 1. Extras
 
